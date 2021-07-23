@@ -4,8 +4,7 @@ require "rack"
 
 module Yaframework
   class Base
-    attr_reader :routes,
-                :request
+    attr_reader :routes, :request, :response, :params, :env
 
     def initialize
       @routes = {}
@@ -19,6 +18,10 @@ module Yaframework
 
     def call(env)
       @request = Rack::Request.new(env)
+      @response = Rack::Response.new
+      @params = request.params
+      @env = env
+
       verb  = @request.request_method
       path  = @request.path_info
 
