@@ -17,6 +17,18 @@ module Yaframework
       @routes[verb][path] = handler
     end
 
+
+    def call(env)
+      @request = Rack::Request.new(env)
+      verb  = @request.request_method
+      path  = @request.path_info
+
+      handler = @routes.fetch(verb, {}).fetch(path, nil)
+
+      return instance_eval(&handler) if handler
+      [404, {}, ["Route for #{verb} #{path} not found"]]
+    end
+
     def params
       @request.params
     end
