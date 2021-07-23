@@ -25,7 +25,10 @@ module Yaframework
 
       handler = @routes.fetch(verb, {}).fetch(path, nil)
 
-      return instance_eval(&handler) if handler
+      if handler
+        result = instance_eval(&handler)
+        return result.instance_of? String ? [200, {}, [result]] : result
+      end
       [404, {}, ["Route for #{verb} #{path} not found"]]
     end
 
