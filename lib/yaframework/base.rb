@@ -1,22 +1,21 @@
+# frozen_string_literal: true
+
 require "rack"
 
 module Yaframework
   class Base
-    attr_reader :routes
-    attr_reader :request
+    attr_reader :routes,
+                :request
 
     def initialize
       @routes = {}
     end
 
-    def route(verb, path, &handler)
-      verb = verb.to_s.upcase
-      path = "/#{path}" unless path[0] == '/'
-
-      @routes[verb] ||= {}
-      @routes[verb][path] = handler
+    %w[GET POST PATCH PUT DELETE HEAD OPTIONS].each do |verb|
+      define_method :"#{verb.downcase}" do |path, &handler|
+        route(verb, path, &handler)
+      end
     end
-
 
     def call(env)
       @request = Rack::Request.new(env)
@@ -27,7 +26,7 @@ module Yaframework
 
       if handler
         result = instance_eval(&handler)
-        return result.instance_of? String ? [200, {}, [result]] : result
+        return result.instance_of?(String) ? [200, {}, [result]] : result
       end
       [404, {}, ["Route for #{verb} #{path} not found"]]
     end
@@ -35,5 +34,20 @@ module Yaframework
     def params
       @request.params
     end
+
+    def listen(port = 5000)
+      Rack::Handler::WEBrick.run self, Port: port
+    end
+
+    private
+
+    def route(verb, path, &handler)
+      path = "/#{path}" unless path[0] == "/"
+
+      @routes[verb] ||= {}
+      @routes[verb][path] = handler
+    end
   end
+
+  Application = Base.new
 end
