@@ -1,8 +1,41 @@
 # Yaframework
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/yaframework`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem Version](https://badge.fury.io/rb/yaframework.svg)](https://badge.fury.io/rb/sinatra)
+[![Build Status](https://app.travis-ci.com/maxbarsukov/yaframework.svg?token=T4CL2EqKG6FY816F3W3F&branch=master)](https://app.travis-ci.com/maxbarsukov/yaframework)
 
-TODO: Delete this and the text above, and describe your gem
+Yaframework is a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for
+quickly creating web applications in Ruby with minimal effort:
+
+> _Wait, I've seen this somewhere..._
+
+```ruby
+# app.rb
+require 'yaframework'
+app = Yaframework::Application
+
+app.get "/" do
+  "Hello world!"
+end
+
+app.listen(4567)
+```
+
+Install the gem:
+
+```shell
+gem install yaframework
+```
+
+And run with:
+
+```shell
+ruby app.rb
+```
+
+View at [http://localhost:4567](http://localhost:4567)
+
+The code you changed will not take effect until you restart the server.
+Please restart the server every time you change.
 
 ## Installation
 
@@ -22,7 +55,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can see usage examples in the [**examples**](https://github.com/maxbarsukov/yaframework/tree/master/examples) folder
 
 ## Development
 
