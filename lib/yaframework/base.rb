@@ -7,35 +7,24 @@ module Yaframework
     attr_reader :routes, :request, :response, :env
 
     def initialize
-      @routes = {}
+      @routes = Hash.new([])
     end
 
     %w[GET POST PATCH PUT DELETE HEAD OPTIONS].each do |verb|
       define_method :"#{verb.downcase}" do |path, &handler|
-        route(verb, path, &handler)
+        add_route(verb, path, &handler)
       end
     end
 
     def call(env)
-      @request = Rack::Request.new(env)
-      @response = Rack::Response.new
-      @params = request.params
+      @request  = Yaframework::Request.new @env
+      @response = Yaframework::Response.new
       @env = env
-
-      verb  = @request.request_method
-      path  = @request.path_info
-
-      handler = @routes.fetch(verb, {}).fetch(path, nil)
-
-      if handler
-        result = instance_eval(&handler)
-        return result.instance_of?(String) ? [200, {}, [result]] : result
-      end
-      [404, {}, ["Route for #{verb} #{path} not found"]]
+      catch(:halt) { route_eval }
     end
 
-    def params
-      @request.params
+    def halt(response)
+      throw :halt, response
     end
 
     def listen(port = 5000)
@@ -44,11 +33,44 @@ module Yaframework
 
     private
 
-    def route(verb, path, &handler)
+    def add_route(verb, path, &handler)
       path = "/#{path}" unless path[0] == "/"
+      @routes[verb] << compile(path, &handler)
+    end
 
-      @routes[verb] ||= {}
-      @routes[verb][path] = handler
+    def compile(path, &handler)
+      route = { handler: handler, compiled_path: nil, extra_params: [], path: path }
+
+      compiled_path = path.gsub(/:\w+/) do |match|
+        route[:extra_params] << match.gsub(":", "").to_sym
+        "([^/?#]+)"
+      end
+      route[:compiled_path] = /^#{compiled_path}$/
+      route
+    end
+
+    def route_eval
+      route = find_route
+      if route
+        response.write instance_eval(&route[:handler])
+      else
+        response.status = 404
+      end
+      response.finish
+    end
+
+    def find_route
+      route = routes[request.request_method].detect do |r|
+        r[:compiled_path] =~ request.path_info
+      end
+
+      if route
+        $~.captures.each_with_index do |value, index|
+          param = route[:extra_params][index]
+          request.params[param] = value
+        end
+      end
+      route
     end
   end
 
