@@ -1,3 +1,7 @@
+## [0.4.2] - 2021-07-24
+
+- DB module removed
+
 ## [0.4.1] - 2021-07-24
 
 - A little fix. Fixed an error with the wrong order of declaring variables (lol)
