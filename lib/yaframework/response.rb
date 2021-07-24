@@ -66,5 +66,13 @@ module Yaframework
       @headers[Rack::CONTENT_TYPE] = ContentType::JSON
       write(str)
     end
+
+    def set_cookie(key, value)
+      Rack::Utils.set_cookie_header!(@headers, key, value)
+    end
+
+    def delete_cookie(key, value = {})
+      Rack::Utils.delete_cookie_header!(@headers, key, value)
+    end
   end
 end
