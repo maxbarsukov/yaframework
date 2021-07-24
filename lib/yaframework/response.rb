@@ -21,7 +21,7 @@ module Yaframework
 
       if body.respond_to? :to_str
         write body.to_str
-      elsif body.respond_to? :each 
+      elsif body.respond_to? :each
         body.each { |i| write i.to_s }
       else
         raise TypeError, "Body must #respond_to? #to_str or #each"

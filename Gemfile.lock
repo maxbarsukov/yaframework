@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yaframework (0.4.2)
+    yaframework (0.4.3)
       rack (~> 2.2)
 
 GEM
@@ -12,7 +12,6 @@ GEM
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
-    pg (1.2.3)
     rack (2.2.3)
     rainbow (3.0.0)
     rake (13.0.6)
@@ -38,7 +37,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 2.2.10)
   minitest (~> 5.0)
-  pg (~> 1.2, >= 1.2.3)
   rack (~> 2.2, >= 2.2.3)
   rake (~> 13.0)
   rubocop (~> 1.7)
