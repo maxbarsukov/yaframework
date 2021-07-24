@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     rack (2.2.3)
-    yaframework (0.2.0)
+    yaframework (0.2.2)
       rack (~> 2.2)
 
 PLATFORMS
