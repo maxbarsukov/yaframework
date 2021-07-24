@@ -1,6 +1,6 @@
 # Yaframework
 
-[![Gem Version](https://badge.fury.io/rb/yaframework.svg)](https://badge.fury.io/rb/sinatra)
+[![Gem Version](https://badge.fury.io/rb/yaframework.svg)](https://badge.fury.io/rb/yaframework)
 [![Build Status](https://app.travis-ci.com/maxbarsukov/yaframework.svg?token=T4CL2EqKG6FY816F3W3F&branch=master)](https://app.travis-ci.com/maxbarsukov/yaframework)
 
 Yaframework is a [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for
