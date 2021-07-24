@@ -2,6 +2,14 @@
 
 module Yaframework
   class Response
+    LOCATION = "Location"
+
+    module ContentType
+      HTML = "text/html"
+      TEXT = "text/plain"
+      JSON = "application/json"
+    end
+
     attr_accessor :status
     attr_reader :headers, :body
 
@@ -13,7 +21,7 @@ module Yaframework
 
       if body.respond_to? :to_str
         write body.to_str
-      elsif body.respond_to? :each
+      elsif body.respond_to? :each 
         body.each { |i| write i.to_s }
       else
         raise TypeError, "Body must #respond_to? #to_str or #each"
@@ -21,19 +29,42 @@ module Yaframework
     end
 
     def finish
-      headers["Content-Length"] = @length.to_s unless (100..199).include?(status) || status == 204
+      @headers[Rack::CONTENT_LENGTH] = @length.to_s unless (100..199).include?(status) || status == 204
       [status, headers, body]
     end
 
     def redirect(target, status = 302)
-      self.status = status
-      headers["Location"] = target
+      @status = status
+      @headers[LOCATION] = target
     end
 
     def write(string)
       s = string.to_s
       @length += s.bytesize
-      body << s
+      @body << s
+    end
+
+    def [](key)
+      @headers[key]
+    end
+
+    def []=(key, value)
+      @headers[key] = value
+    end
+
+    def html(str)
+      @headers[Rack::CONTENT_TYPE] = ContentType::HTML
+      write(str)
+    end
+
+    def text(str)
+      @headers[Rack::CONTENT_TYPE] = ContentType::TEXT
+      write(str)
+    end
+
+    def json(str)
+      @headers[Rack::CONTENT_TYPE] = ContentType::JSON
+      write(str)
     end
   end
 end

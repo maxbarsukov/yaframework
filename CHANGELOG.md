@@ -1,3 +1,8 @@
+## [0.4.3] - 2021-07-24
+
+- Updated the method for changing the Content-Type
+- Interaction with headers has been improved
+
 ## [0.4.2] - 2021-07-24
 
 - DB module removed
