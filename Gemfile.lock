@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yaframework (0.4.1)
+    yaframework (0.4.2)
       rack (~> 2.2)
 
 GEM
@@ -36,7 +36,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 2.1.4)
+  bundler (>= 2.2.10)
   minitest (~> 5.0)
   pg (~> 1.2, >= 1.2.3)
   rack (~> 2.2, >= 2.2.3)
@@ -45,4 +45,4 @@ DEPENDENCIES
   yaframework!
 
 BUNDLED WITH
-   2.1.4
+   2.2.16
