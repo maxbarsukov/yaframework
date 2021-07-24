@@ -1,3 +1,7 @@
+## [0.4.1] - 2021-07-24
+
+- A little fix. Fixed an error with the wrong order of declaring variables (lol)
+
 ## [0.4.0] - 2021-07-24
 
 - Global routing update and large-scale code base changes

@@ -17,9 +17,9 @@ module Yaframework
     end
 
     def call(env)
+      @env = env
       @request  = Yaframework::Request.new @env
       @response = Yaframework::Response.new
-      @env = env
       catch(:halt) { route_eval }
     end
 
