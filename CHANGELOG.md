@@ -1,3 +1,11 @@
+## [0.4.0] - 2021-07-24
+
+- Global routing update and large-scale code base changes
+
+## [0.3.0] - 2021-07-24
+
+- Added tools for interacting with the database
+
 ## [0.2.2] - 2021-07-23
 
 - Params fixed
