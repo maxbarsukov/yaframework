@@ -16,5 +16,11 @@ Style/Documentation:
 Metrics/MethodLength:
   Enabled: false
 
+Metrics/AbcSize:
+  Max: 25
+
 Layout/LineLength:
   Max: 120
+
+Style/SpecialGlobalVars:
+  Enabled: false
