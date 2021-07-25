@@ -5,6 +5,8 @@ require "rack"
 module Yaframework
   class Base
     attr_reader :routes, :request, :response, :env
+    alias req request
+    alias res response
 
     def initialize
       @routes = Hash.new([])
@@ -36,6 +38,10 @@ module Yaframework
 
     def after(&block)
       @after_hooks << block
+    end
+
+    def params
+      request.params
     end
 
     def handle(status, &block)

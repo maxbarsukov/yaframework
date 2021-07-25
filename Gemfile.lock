@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yaframework (0.4.8)
+    yaframework (0.4.9)
       rack (~> 2.2, >= 2.2.3)
 
 GEM

@@ -1,3 +1,7 @@
+## [0.4.9] - 2021-07-25
+
+- Some useful aliases added
+
 ## [0.4.8] - 2021-07-25
 
 - Before/after hooks added
