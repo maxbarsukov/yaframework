@@ -2,16 +2,47 @@
 
 Here are some examples of applications created with Yaframework:
 
-1. ###[Hello World](https://github.com/maxbarsukov/yaframework/tree/master/examples/hello-world)
+1. [**Hello World**](https://github.com/maxbarsukov/yaframework/raw/master/examples/hello_world.rb)
 
    A simple application that displays "Hello world" to you.
 
 
-2. ###[Params](https://github.com/maxbarsukov/yaframework/tree/master/examples/params)
+2. [**Params**](https://github.com/maxbarsukov/yaframework/raw/master/examples/params.rb)
 
    Shows how the application parameters can be used
 
 
-3. ###[Halts and Redirects](https://github.com/maxbarsukov/yaframework/tree/master/examples/halts-and-redirects)
+3. [**Halts and Redirects**](https://github.com/maxbarsukov/yaframework/raw/master/examples/halts_and_redirects.rb)
 
    Shows how to use halts and redirects
+
+
+4. [**Headers**](https://github.com/maxbarsukov/yaframework/raw/master/examples/headers.rb)
+
+   How to add and view headers.
+
+
+5. [**Error handling**](https://github.com/maxbarsukov/yaframework/raw/master/examples/error_handling.rb)
+
+   How to handle errors
+
+
+6. [**Content Types**](https://github.com/maxbarsukov/yaframework/raw/master/examples/content_types.rb)
+
+   Using json, html, or plain text
+
+
+7. [**Cookies**](https://github.com/maxbarsukov/yaframework/raw/master/examples/cookies.rb)
+
+   Adding and deleting cookies
+
+
+## Installation
+
+Clone this repo and go to this folder.
+Then, run `bundle install` to install this gem.
+
+## Run
+
+Run with `ruby hello-world.rb` or any other file and view at http://localhost:4567
+ 

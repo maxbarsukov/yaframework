@@ -8,7 +8,7 @@ app.get "/" do
 end
 
 app.get "/hello" do
-  "Hello world!"
+  "Hi, you were redirected here from the root page. You can go <a href=\"/error\"></a> to get a 401 error"
 end
 
 app.get "/error" do

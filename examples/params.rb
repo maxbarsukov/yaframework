@@ -3,11 +3,13 @@
 require "yaframework"
 app = Yaframework::Application
 
+# Any route, like /max or /ivan
 app.get "/:name" do
   "Hello #{request.params[:name]}!"
 end
 
-app.get "/:name/foo/:bar" do
+# You can try /max/from/rnd and see it with your own eyes
+app.get "/:name/from/:bar" do
   "Hello #{request.params[:name]} from #{request.params[:bar]}!"
 end
 
