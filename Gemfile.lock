@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    yaframework (0.4.3)
-      rack (~> 2.2)
+    yaframework (0.4.4)
+      rack (~> 2.2, >= 2.2.3)
 
 GEM
   remote: https://rubygems.org/
@@ -37,7 +37,6 @@ PLATFORMS
 DEPENDENCIES
   bundler (>= 2.2.10)
   minitest (~> 5.0)
-  rack (~> 2.2, >= 2.2.3)
   rake (~> 13.0)
   rubocop (~> 1.7)
   yaframework!
