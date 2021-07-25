@@ -8,6 +8,8 @@ module Yaframework
 
     def initialize
       @routes = Hash.new([])
+      @before_hooks = []
+      @after_hooks  = []
       @inbox = {}
     end
 
@@ -26,6 +28,14 @@ module Yaframework
 
     def halt(response)
       throw :halt, response
+    end
+
+    def before(&block)
+      @before_hooks << block
+    end
+
+    def after(&block)
+      @after_hooks << block
     end
 
     def handle(status, &block)
@@ -59,11 +69,14 @@ module Yaframework
       response.status = 404 unless route
 
       if @inbox[response.status]
-        response.write instance_eval(&@inbox[response.status])
+        response.write exec(@inbox[response.status])
         return response.finish
       end
 
-      response.write instance_eval(&route[:handler]) if route
+      exec_before_hooks
+      response.write exec(route[:handler]) if route
+      exec_after_hooks
+
       response.finish
     end
 
@@ -79,6 +92,30 @@ module Yaframework
         end
       end
       route
+    end
+
+    def exec(action)
+      if action.respond_to? :to_sym
+        send(action)
+      else
+        instance_exec(&action)
+      end
+    end
+
+    def exec_before_hooks
+      exec_hooks @before_hooks
+    end
+
+    def exec_after_hooks
+      exec_hooks @after_hooks
+    end
+
+    def exec_hooks(hooks)
+      return true if hooks.nil?
+
+      hooks.each do |hook|
+        return false if exec(hook) == false
+      end
     end
   end
 

@@ -1,3 +1,7 @@
+## [0.4.8] - 2021-07-25
+
+- Before/after hooks added
+
 ## [0.4.7] - 2021-07-25
 
 - Handling 404 error fixed
