@@ -8,6 +8,7 @@ module Yaframework
 
     def initialize
       @routes = Hash.new([])
+      @inbox = {}
     end
 
     %w[GET POST PATCH PUT DELETE HEAD OPTIONS].each do |verb|
@@ -25,6 +26,10 @@ module Yaframework
 
     def halt(response)
       throw :halt, response
+    end
+
+    def handle(status, &block)
+      @inbox[status] = block
     end
 
     def listen(port = 5000)
@@ -50,6 +55,11 @@ module Yaframework
     end
 
     def route_eval
+      if @inbox[response.status]
+        response.write instance_eval(&@inbox[response.status])
+        return response.finish
+      end
+
       route = find_route
       if route
         response.write instance_eval(&route[:handler])

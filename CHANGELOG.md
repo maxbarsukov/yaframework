@@ -1,3 +1,7 @@
+## [0.4.5] - 2021-07-25
+
+- Error handling added
+
 ## [0.4.4] - 2021-07-25
 
 - Interaction with cookies has been updated
