@@ -36,6 +36,7 @@ Here are some examples of applications created with Yaframework:
 
    Adding and deleting cookies
 
+
 8. [**Hooks**](https://github.com/maxbarsukov/yaframework/blob/master/examples/before_after_hooks.rb)
 
    How to use `before` and `after` hooks
@@ -49,4 +50,3 @@ Then, run `bundle install` to install this gem.
 ## Run
 
 Run with `ruby hello-world.rb` or any other file and view at http://localhost:4567
- 
