@@ -13,3 +13,4 @@
 *.gem
 *.rbc
 /examples/**/Gemfile.lock
+/lib/app.rb
