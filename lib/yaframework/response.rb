@@ -42,6 +42,7 @@ module Yaframework
       s = string.to_s
       @length += s.bytesize
       @body << s
+      nil
     end
 
     def [](key)

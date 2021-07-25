@@ -1,3 +1,7 @@
+## [0.4.6] - 2021-07-25
+
+- Content duplication fixed
+
 ## [0.4.5] - 2021-07-25
 
 - Error handling added
