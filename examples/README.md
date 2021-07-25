@@ -36,6 +36,10 @@ Here are some examples of applications created with Yaframework:
 
    Adding and deleting cookies
 
+8. [**Hooks**](https://github.com/maxbarsukov/yaframework/raw/master/examples/before_after_hooks.rb)
+
+   How to use `before` and `after` hooks
+
 
 ## Installation
 
