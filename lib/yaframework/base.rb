@@ -55,17 +55,15 @@ module Yaframework
     end
 
     def route_eval
+      route = find_route
+      response.status = 404 unless route
+
       if @inbox[response.status]
         response.write instance_eval(&@inbox[response.status])
         return response.finish
       end
 
-      route = find_route
-      if route
-        response.write instance_eval(&route[:handler])
-      else
-        response.status = 404
-      end
+      response.write instance_eval(&route[:handler]) if route
       response.finish
     end
 

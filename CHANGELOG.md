@@ -1,3 +1,7 @@
+## [0.4.7] - 2021-07-25
+
+- Handling 404 error fixed
+
 ## [0.4.6] - 2021-07-25
 
 - Content duplication fixed
