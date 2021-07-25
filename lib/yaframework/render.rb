@@ -36,9 +36,7 @@ module Yaframework
     private
 
     def _render(template, locals = {}, options = {}, &block)
-      _cache.fetch(template) {
-        Tilt.new(template, 1, options.merge(outvar: "@_output"))
-      }.render(self, locals, &block)
+      _cache.fetch(template) { Tilt.new(template, 1, options.merge(outvar: "@_output")) }.render(self, locals, &block)
     end
 
     def _cache
