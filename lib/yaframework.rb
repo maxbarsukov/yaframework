@@ -3,6 +3,7 @@
 require_relative "yaframework/base"
 require_relative "yaframework/request"
 require_relative "yaframework/response"
+require_relative "yaframework/render"
 
 module Yaframework
 end

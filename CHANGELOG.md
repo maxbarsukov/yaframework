@@ -1,3 +1,7 @@
+## [0.5.0] - 2021-07-25
+
+- Templates rendering added
+
 ## [0.4.9] - 2021-07-25
 
 - Some useful aliases added

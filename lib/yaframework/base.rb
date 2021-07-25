@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require "rack"
+require_relative "../yaframework/render"
 
 module Yaframework
   class Base
-    attr_reader :routes, :request, :response, :env
+    include Yaframework::Render
+
+    attr_reader :routes, :request, :response, :env, :settings
     alias req request
     alias res response
 
@@ -12,6 +15,7 @@ module Yaframework
       @routes = Hash.new([])
       @before_hooks = []
       @after_hooks  = []
+      @settings = {}
       @inbox = {}
     end
 
@@ -126,4 +130,5 @@ module Yaframework
   end
 
   Application = Base.new
+  Application.setup
 end
