@@ -8,7 +8,7 @@ module Yaframework
       @settings = settings
       @settings[:template_engine] ||= "erb"
       @settings[:layout]  ||= "layout"
-      @settings[:views]   ||= File.expand_path("views", File.dirname($PROGRAM_NAME))
+      @settings[:views]   ||= File.expand_path("views", Dir.pwd)
       @settings[:options] ||= {
         default_encoding: Encoding.default_external
       }

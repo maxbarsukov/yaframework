@@ -1,3 +1,7 @@
+## [0.5.2] - 2021-07-26
+
+- Error while rendering template fixed
+
 ## [0.5.1] - 2021-07-26
 
 - `helpers` and `configure` methods added
