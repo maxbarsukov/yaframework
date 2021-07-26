@@ -4,7 +4,7 @@ require "yaframework"
 app = Yaframework::Application
 
 app.configure do
-  @app_name
+  @app_name = "Your awesome app"
 end
 
 app.get "/" do
