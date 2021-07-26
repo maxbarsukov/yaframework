@@ -56,6 +56,12 @@ Here are some examples of applications created with Yaframework:
 
     How to configure your application
 
+
+12. [**CatFacts**](https://github.com/maxbarsukov/catfacts-yaframework)
+
+    A simple, but full-fledged application built with yaframework
+
+
 ## Installation
 
 Clone this repo and go to this folder.
