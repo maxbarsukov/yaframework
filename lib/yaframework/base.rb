@@ -25,6 +25,14 @@ module Yaframework
       end
     end
 
+    def helpers(&block)
+      exec(block) if block_given?
+    end
+
+    def configure(&block)
+      exec(block) if block_given?
+    end
+
     def call(env)
       @env = env
       @request  = Yaframework::Request.new @env

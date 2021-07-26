@@ -42,10 +42,19 @@ Here are some examples of applications created with Yaframework:
    How to use `before` and `after` hooks
 
 
-8. [**Rendering**](https://github.com/maxbarsukov/yaframework/tree/master/examples/rendering)
+9. [**Rendering**](https://github.com/maxbarsukov/yaframework/tree/master/examples/rendering)
 
    Rendering your `.erb` (or any else) files and partials using tilt.
 
+
+10. [**Helpers**](https://github.com/maxbarsukov/yaframework/blob/master/examples/helpers.rb)
+
+    Example of using helpers
+
+
+11. [**Configure**](https://github.com/maxbarsukov/yaframework/blob/master/examples/configure.rb)
+
+    How to configure your application
 
 ## Installation
 

@@ -1,3 +1,7 @@
+## [0.5.1] - 2021-07-26
+
+- `helpers` and `configure` methods added
+
 ## [0.5.0] - 2021-07-25
 
 - Templates rendering added
